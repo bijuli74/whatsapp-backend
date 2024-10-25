@@ -1,8 +1,8 @@
 package com.bijuli.service;
 
+import com.bijuli.dto.UpdateUserRequest;
 import com.bijuli.exception.UserException;
 import com.bijuli.model.User;
-import com.bijuli.payload.UpdateUserRequest;
 
 import java.util.List;
 

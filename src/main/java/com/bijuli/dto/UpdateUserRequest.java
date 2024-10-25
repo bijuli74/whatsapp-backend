@@ -1,4 +1,4 @@
-package com.bijuli.payload;
+package com.bijuli.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
