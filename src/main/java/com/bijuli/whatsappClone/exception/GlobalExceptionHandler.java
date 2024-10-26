@@ -1,4 +1,4 @@
-package com.bijuli.exception;
+package com.bijuli.whatsappClone.exception;
 
 import java.time.LocalDateTime;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import com.bijuli.dto.ErrorDetail;
+import com.bijuli.whatsappClone.dto.ErrorDetail;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

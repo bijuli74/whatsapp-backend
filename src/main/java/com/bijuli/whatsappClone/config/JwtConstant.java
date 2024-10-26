@@ -1,4 +1,4 @@
-package com.bijuli.config;
+package com.bijuli.whatsappClone.config;
 
 public class JwtConstant {
 

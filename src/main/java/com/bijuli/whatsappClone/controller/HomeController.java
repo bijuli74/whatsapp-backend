@@ -1,4 +1,4 @@
-package com.bijuli.controller;
+package com.bijuli.whatsappClone.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

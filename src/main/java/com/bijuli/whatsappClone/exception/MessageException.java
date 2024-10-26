@@ -1,4 +1,4 @@
-package com.bijuli.exception;
+package com.bijuli.whatsappClone.exception;
 
 public class MessageException extends Exception {
 

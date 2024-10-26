@@ -1,4 +1,4 @@
-package com.bijuli.config;
+package com.bijuli.whatsappClone.config;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,8 +11,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import io.jsonwebtoken.Claims;
@@ -40,22 +38,22 @@ public class JwtTokenValidator extends OncePerRequestFilter {
       final String jwt = authHeader.substring(7);
 
       SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
-      Claims claim = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody(); // old
+      // Claims claim =
+      // Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
+      // // old
 
       // new
-      // Claims claim =
-      // Jwts.parser().verifyWith(key).build().parseSignedClaims(jwt).getPayload();
+      Claims claim = Jwts.parser().verifyWith(key).build().parseSignedClaims(jwt).getPayload();
 
-      // jwt = Jwts.parser() // (1)
-
-      // .keyLocator(keyLocator) // (2) dynamically locate signing or encryption keys
-      // // .verifyWith(key) // or a constant key used to verify all signed JWTs
-      // // .decryptWith(key) // or a constant key used to decrypt all encrypted JWTs
-
-      // .build() // (3)
-
-      // .parse(compact); // (4) or parseSignedClaims, parseEncryptedClaims,
-      // parseSignedContent, etc
+      /**
+       * jwt = Jwts.parser() // (1)
+       * .keyLocator(keyLocator) // (2) dynamically locate signing or encryption keys
+       * .verifyWith(key) // or a constant key used to verify all signed JWTs
+       * .decryptWith(key) // or a constant key used to decrypt all encrypted JWTs
+       * .build() // (3)
+       * .parse(compact); // (4) or parseSignedClaims, parseEncryptedClaims,
+       * parseSignedContent, etc
+       **/
 
       String username = String.valueOf(claim.get("username"));
       String authorities = String.valueOf(claim.get("authorities"));

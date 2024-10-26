@@ -1,6 +1,5 @@
-package com.bijuli.config;
+package com.bijuli.whatsappClone.config;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
@@ -13,10 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @Configuration
 public class AppConfig {
@@ -41,8 +37,8 @@ public class AppConfig {
   UrlBasedCorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration cfg = new CorsConfiguration();
     cfg.setAllowedOrigins(List.of("http://localhost:3000"));
-    cfg.setAllowedMethods(CorsConfiguration.ALL);
-    cfg.setAllowedHeaders(CorsConfiguration.ALL);
+    cfg.setAllowedMethods(List.of("*"));
+    cfg.setAllowedHeaders(List.of("*"));
     cfg.setExposedHeaders(List.of("Authorization"));
     cfg.setMaxAge(3600L);
 

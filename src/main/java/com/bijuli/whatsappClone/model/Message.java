@@ -1,9 +1,12 @@
-package com.bijuli.model;
+package com.bijuli.whatsappClone.model;
+
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,15 +15,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Message {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int id;
+  private Integer Id;
 
-  private String name;
-  private String email;
-  private String profile;
-  private String password;
+  private String content;
+  private LocalDateTime timestamp;
 
+  @ManyToOne
+  private Chat chat;
+
+  @ManyToOne
+  private User user;
 }

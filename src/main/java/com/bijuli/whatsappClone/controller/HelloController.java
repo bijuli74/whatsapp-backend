@@ -1,4 +1,4 @@
-package com.bijuli.controller;
+package com.bijuli.whatsappClone.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

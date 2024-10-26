@@ -1,4 +1,4 @@
-package com.bijuli.dto;
+package com.bijuli.whatsappClone.dto;
 
 import java.time.LocalDateTime;
 

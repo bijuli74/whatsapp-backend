@@ -1,10 +1,10 @@
-package com.bijuli.repository;
+package com.bijuli.whatsappClone.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.bijuli.model.User;
+import com.bijuli.whatsappClone.model.User;
 
 import java.util.List;
 

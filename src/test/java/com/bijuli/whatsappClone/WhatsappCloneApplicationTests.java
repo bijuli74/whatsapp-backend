@@ -1,4 +1,4 @@
-package com.bijuli.whatsapp_clone;
+package com.bijuli.whatsappClone;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
