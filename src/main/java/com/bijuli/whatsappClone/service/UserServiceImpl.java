@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
 
-import com.bijuli.whatsappClone.config.TokenProvider;
+import com.bijuli.whatsappClone.config.JwtUtils;
 import com.bijuli.whatsappClone.dto.UpdateUserRequest;
 import com.bijuli.whatsappClone.exception.UserException;
 import com.bijuli.whatsappClone.model.User;
@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
   private UserRepository userRepository;
 
   @Autowired
-  private TokenProvider tokenProvider;
+  private JwtUtils jwtUtils;
 
   @Override
   public User findUserById(Integer id) throws UserException {
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public User findUserProfile(String jwt) throws UserException {
-    String email = this.tokenProvider.getEmailFromToken(jwt);
+    String email = this.jwtUtils.getEmailFromToken(jwt);
     if (email == null) {
       throw new BadCredentialsException("Recieved invalid token...");
     }

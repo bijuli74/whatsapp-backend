@@ -24,7 +24,7 @@ public class AppConfig {
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(
             authorize -> authorize.requestMatchers("/api/**").authenticated().anyRequest().permitAll())
-        .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
+        .addFilterBefore(new JwtAuthenticationFilter(), BasicAuthenticationFilter.class)
         .csrf(csrf -> csrf.disable())
         .cors(cors -> cors.configurationSource(corsConfigurationSource()))
         .formLogin(Customizer.withDefaults())
