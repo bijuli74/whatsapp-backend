@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginRequest {
+public class SingleChatRequest {
 
-  private String email;
-  private String password;
-
+  private Integer userId;
 }

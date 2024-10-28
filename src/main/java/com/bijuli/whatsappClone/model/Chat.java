@@ -46,6 +46,9 @@ public class Chat {
   @OneToMany
   private List<Message> messages = new ArrayList<>();
 
+  @ManyToMany
+  private Set<User> admins = new HashSet<>();
+
   // @ManyToMany
   // private Set<User> user;
 
