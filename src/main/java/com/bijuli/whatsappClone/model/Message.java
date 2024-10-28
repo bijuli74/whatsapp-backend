@@ -2,6 +2,7 @@ package com.bijuli.whatsappClone.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,9 +20,12 @@ public class Message {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer Id;
+  @Column(nullable = false)
+  private Integer id;
 
   private String content;
+
+  @Column(nullable = false)
   private LocalDateTime timestamp;
 
   @ManyToOne

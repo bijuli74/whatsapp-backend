@@ -1,5 +1,6 @@
 package com.bijuli.whatsappClone.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,11 +17,17 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(nullable = false)
   private Integer id;
 
+  @Column(nullable = false)
   private String name;
+
+  @Column(nullable = false, unique = true, length = 100)
   private String email;
   private String profile;
+
+  @Column(nullable = false)
   private String password;
 
 }
