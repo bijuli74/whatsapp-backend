@@ -26,7 +26,7 @@ public class Chat {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(nullable = false)
-  private int id;
+  private Integer id;
 
   @Column(name = "chat_name", nullable = false)
   private String chatName;
