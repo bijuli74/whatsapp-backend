@@ -3,6 +3,7 @@ package com.bijuli.whatsappClone.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bijuli.whatsappClone.dto.GroupChatRequest;
 import com.bijuli.whatsappClone.exception.ChatException;
@@ -11,6 +12,7 @@ import com.bijuli.whatsappClone.model.Chat;
 import com.bijuli.whatsappClone.model.User;
 import com.bijuli.whatsappClone.repository.ChatRepository;
 
+@Service
 public class ChatServiceImpl implements ChatService {
 
   @Autowired
