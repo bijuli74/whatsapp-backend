@@ -41,6 +41,7 @@ public class AppConfig {
     cfg.setAllowedHeaders(List.of("*"));
     cfg.setExposedHeaders(List.of("Authorization"));
     cfg.setMaxAge(3600L);
+    cfg.setAllowCredentials(true); // allows cookies & credentials
 
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", cfg); // Apply to all routes

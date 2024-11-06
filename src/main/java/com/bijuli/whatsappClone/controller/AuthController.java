@@ -23,7 +23,7 @@ import com.bijuli.whatsappClone.repository.UserRepository;
 import com.bijuli.whatsappClone.service.UserDetailsServiceImpl;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/auth")
 public class AuthController {
 
   @Autowired
