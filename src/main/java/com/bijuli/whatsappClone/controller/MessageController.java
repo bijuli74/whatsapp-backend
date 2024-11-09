@@ -1,6 +1,7 @@
 package com.bijuli.whatsappClone.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,7 +48,7 @@ public class MessageController {
   }
 
   @GetMapping("/{chatId}")
-  public ResponseEntity<List<Message>> getChatMessageHandler(@PathVariable Integer chatId,
+  public ResponseEntity<List<Message>> getChatMessageHandler(@PathVariable UUID chatId,
       @RequestHeader("Authorization") String jwt) throws UserException, ChatException {
 
     User user = this.userService.findUserProfile(jwt);
@@ -57,7 +58,7 @@ public class MessageController {
   }
 
   @DeleteMapping("/{messageId}")
-  public ResponseEntity<ApiResponse> deleteMessageHandler(@PathVariable Integer messageId,
+  public ResponseEntity<ApiResponse> deleteMessageHandler(@PathVariable UUID messageId,
       @RequestHeader("Authorization") String jwt) throws UserException, ChatException, MessageException {
 
     User user = this.userService.findUserProfile(jwt);

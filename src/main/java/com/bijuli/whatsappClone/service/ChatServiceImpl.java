@@ -1,6 +1,7 @@
 package com.bijuli.whatsappClone.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class ChatServiceImpl implements ChatService {
   private ChatRepository chatRepository;
 
   @Override
-  public Chat createChat(User reqUser, Integer userId) throws UserException {
+  public Chat createChat(User reqUser, UUID userId) throws UserException {
 
     User user = userService.findUserById(userId);
     Chat isChatExist = chatRepository.findSingleChatByUserIds(user, reqUser);
@@ -43,14 +44,14 @@ public class ChatServiceImpl implements ChatService {
   }
 
   @Override
-  public Chat findChatById(Integer chatId) throws ChatException {
+  public Chat findChatById(UUID chatId) throws ChatException {
 
     return chatRepository.findById(chatId)
         .orElseThrow(() -> new ChatException("Chat not found"));
   }
 
   @Override
-  public List<Chat> findAllChatByUserId(Integer userId) throws UserException {
+  public List<Chat> findAllChatByUserId(UUID userId) throws UserException {
 
     User user = userService.findUserById(userId);
 
@@ -68,7 +69,7 @@ public class ChatServiceImpl implements ChatService {
     group.setCreatedBy(reqUser);
     group.getAdmins().add(reqUser);
 
-    for (Integer userId : req.getUserIds()) {
+    for (UUID userId : req.getUserIds()) {
       User user = userService.findUserById(userId);
       group.getUsers().add(user);
     }
@@ -78,7 +79,7 @@ public class ChatServiceImpl implements ChatService {
   }
 
   @Override
-  public Chat addUserToGroup(Integer userId, Integer chatId, User reqUser) throws UserException, ChatException {
+  public Chat addUserToGroup(UUID userId, UUID chatId, User reqUser) throws UserException, ChatException {
 
     Chat chat = chatRepository.findById(chatId)
         .orElseThrow(() -> new ChatException("Chat not found"));
@@ -95,7 +96,7 @@ public class ChatServiceImpl implements ChatService {
   }
 
   @Override
-  public Chat renameGroup(Integer chatId, String groupName, User reqUser) throws ChatException, UserException {
+  public Chat renameGroup(UUID chatId, String groupName, User reqUser) throws ChatException, UserException {
     Chat chat = chatRepository.findById(chatId)
         .orElseThrow(() -> new ChatException("Chat not found"));
 
@@ -108,7 +109,7 @@ public class ChatServiceImpl implements ChatService {
   }
 
   @Override
-  public Chat removeFromGroup(Integer chatId, Integer userId, User reqUser) throws UserException, ChatException {
+  public Chat removeFromGroup(UUID chatId, UUID userId, User reqUser) throws UserException, ChatException {
     Chat chat = chatRepository.findById(chatId)
         .orElseThrow(() -> new ChatException("Chat not found"));
 
@@ -128,7 +129,7 @@ public class ChatServiceImpl implements ChatService {
   }
 
   @Override
-  public void deleteChat(Integer chatId, Integer userId) throws ChatException, UserException {
+  public void deleteChat(UUID chatId, UUID userId) throws ChatException, UserException {
 
     Chat chat = chatRepository.findById(chatId)
         .orElseThrow(() -> new ChatException("Chat not found"));

@@ -7,8 +7,9 @@ import org.springframework.data.repository.query.Param;
 import com.bijuli.whatsappClone.model.User;
 
 import java.util.List;
+import java.util.UUID;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, UUID> {
 
   public User findByEmail(String email);
 

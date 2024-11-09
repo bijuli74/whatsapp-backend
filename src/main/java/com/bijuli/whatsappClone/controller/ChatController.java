@@ -1,6 +1,7 @@
 package com.bijuli.whatsappClone.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,7 +59,7 @@ public class ChatController {
   }
 
   @GetMapping("/{chatId}")
-  public ResponseEntity<Chat> findChatByIdHandler(@PathVariable int chatId) throws ChatException {
+  public ResponseEntity<Chat> findChatByIdHandler(@PathVariable UUID chatId) throws ChatException {
 
     Chat chat = chatService.findChatById(chatId);
     return new ResponseEntity<Chat>(chat, HttpStatus.OK);
@@ -75,8 +76,8 @@ public class ChatController {
   }
 
   @PutMapping("/{chatId}/add/{userId}")
-  public ResponseEntity<Chat> addUserToGroupHandler(@PathVariable Integer chatId,
-      @PathVariable Integer userId, @RequestHeader("Authorization") String jwt)
+  public ResponseEntity<Chat> addUserToGroupHandler(@PathVariable UUID chatId,
+      @PathVariable UUID userId, @RequestHeader("Authorization") String jwt)
       throws UserException, ChatException {
 
     User reqUser = userService.findUserProfile(jwt);
@@ -86,8 +87,8 @@ public class ChatController {
   }
 
   @PutMapping("/{chatId}/remove/{userId}")
-  public ResponseEntity<Chat> removeUserFromGroupHandler(@PathVariable Integer chatId,
-      @PathVariable Integer userId, @RequestHeader("Authorization") String jwt)
+  public ResponseEntity<Chat> removeUserFromGroupHandler(@PathVariable UUID chatId,
+      @PathVariable UUID userId, @RequestHeader("Authorization") String jwt)
       throws UserException, ChatException {
 
     User reqUser = userService.findUserProfile(jwt);
@@ -97,7 +98,7 @@ public class ChatController {
   }
 
   @DeleteMapping("/delete/{chatId}")
-  public ResponseEntity<ApiResponse> deleteChatHandler(@PathVariable Integer chatId,
+  public ResponseEntity<ApiResponse> deleteChatHandler(@PathVariable UUID chatId,
       @RequestHeader("Authorization") String jwt)
       throws UserException, ChatException {
 

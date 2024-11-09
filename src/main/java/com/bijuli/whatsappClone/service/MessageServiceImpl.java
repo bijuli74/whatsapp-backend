@@ -2,6 +2,7 @@ package com.bijuli.whatsappClone.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -55,7 +56,7 @@ public class MessageServiceImpl implements MessageService {
   }
 
   @Override
-  public List<Message> getChatsMessages(Integer chatId, User reqUser) throws ChatException, UserException {
+  public List<Message> getChatsMessages(UUID chatId, User reqUser) throws ChatException, UserException {
 
     Chat chat = chatService.findChatById(chatId);
 
@@ -70,14 +71,14 @@ public class MessageServiceImpl implements MessageService {
   }
 
   @Override
-  public Message findMessageById(Integer messageId) throws MessageException {
+  public Message findMessageById(UUID messageId) throws MessageException {
     Message message = messageRepository.findById(messageId)
         .orElseThrow(() -> new MessageException("The required message is not found"));
     return message;
   }
 
   @Override
-  public void deleteMessage(Integer messageId, User reqUser) throws MessageException {
+  public void deleteMessage(UUID messageId, User reqUser) throws MessageException {
     Message message = messageRepository.findById(messageId)
         .orElseThrow(() -> new MessageException("The required message is not found"));
 

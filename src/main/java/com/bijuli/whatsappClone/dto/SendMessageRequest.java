@@ -1,5 +1,7 @@
 package com.bijuli.whatsappClone.dto;
 
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SendMessageRequest {
 
-  private Integer userId;
-  private Integer chatId;
+  private UUID userId;
+  private UUID chatId;
   private String content;
 
 }

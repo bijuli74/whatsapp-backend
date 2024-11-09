@@ -1,6 +1,7 @@
 package com.bijuli.whatsappClone.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -21,7 +22,7 @@ public class UserServiceImpl implements UserService {
   private JwtUtils jwtUtils;
 
   @Override
-  public User findUserById(Integer id) throws UserException {
+  public User findUserById(UUID id) throws UserException {
     return userRepository.findById(id)
         .orElseThrow(() -> new UserException("The requested user is not found"));
   }
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public User updateUser(Integer userId, UpdateUserRequest req) throws UserException {
+  public User updateUser(UUID userId, UpdateUserRequest req) throws UserException {
     User user = findUserById(userId);
 
     if (req.getName() != null) {

@@ -1,6 +1,7 @@
 package com.bijuli.whatsappClone.model;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,9 +20,9 @@ import lombok.NoArgsConstructor;
 public class Message {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.UUID)
   @Column(nullable = false)
-  private Integer id;
+  private UUID id;
 
   private String content;
 

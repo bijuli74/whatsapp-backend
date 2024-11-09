@@ -1,5 +1,7 @@
 package com.bijuli.whatsappClone.model;
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,9 +18,9 @@ import lombok.NoArgsConstructor;
 public class User {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.UUID)
   @Column(nullable = false)
-  private Integer id;
+  private UUID id;
 
   @Column(nullable = false)
   private String name;
