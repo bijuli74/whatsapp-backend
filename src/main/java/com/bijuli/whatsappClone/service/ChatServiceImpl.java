@@ -34,6 +34,7 @@ public class ChatServiceImpl implements ChatService {
     }
 
     Chat chat = new Chat();
+    chat.setChatName(reqUser.getName() + "&" + user.getName());
     chat.setCreatedBy(reqUser);
     chat.getUsers().add(user);
     chat.getUsers().add(reqUser);

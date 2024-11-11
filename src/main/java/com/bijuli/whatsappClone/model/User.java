@@ -27,6 +27,7 @@ public class User {
 
   @Column(nullable = false, unique = true, length = 100)
   private String email;
+
   private String profile;
 
   @Column(nullable = false)

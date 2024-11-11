@@ -29,7 +29,7 @@ public class Chat {
   @Column(nullable = false)
   private UUID id;
 
-  @Column(name = "chat_name", nullable = false)
+  @Column(name = "chat_name")
   private String chatName;
 
   @Column(name = "chat_image")
